@@ -1,0 +1,16 @@
+name: single_attack_uav06_ecu_ioft
+scenario_type: single_attack
+description: >
+  Single-attack scenario for uav_06 using ECU-IoFT-main as a UAV IoT/Wi-Fi
+  replay source.
+
+attack_events:
+  - uav_id: uav_06
+    source_dataset: ECU-IoFT-main
+    source_type: uav_iot_wifi
+    attack_types: [command_injection]
+    start_time: 20.0
+    duration: 14.0
+    intensity: 0.80
+    replay_mode: random
+    is_ood: true

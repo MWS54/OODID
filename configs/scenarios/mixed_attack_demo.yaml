@@ -1,0 +1,37 @@
+name: mixed_attack_demo
+scenario_type: mixed_attack
+mix_mode: multi_uav_multi_attack
+description: >
+  Demonstrates a mixed-attack scenario that includes both a composite attack on a
+  single UAV and concurrent attacks across multiple UAVs.
+
+attack_events:
+  - uav_id: uav_01
+    source_dataset: UAV-NDD
+    attack_types: DoS + Scan
+    start_time: 24.0
+    duration: 20.0
+    intensity: 0.95
+    replay_mode: loop
+    mission_phase_constraint: [cruise, hover]
+    is_ood: true
+
+  - uav_id: uav_02
+    source_dataset: GCS-to-UAV Updated
+    attack_types: [Replay]
+    start_time: 24.0
+    duration: 16.0
+    intensity: 0.80
+    replay_mode: random
+    mission_phase_constraint: [hover]
+    is_ood: true
+
+  - uav_id: uav_03
+    source_dataset: ISOT Drone Dataset
+    attack_types: [Probe]
+    start_time: 30.0
+    duration: 14.0
+    intensity: 0.70
+    replay_mode: sequential
+    mission_phase_constraint: [cruise]
+    is_ood: true

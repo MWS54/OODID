@@ -1,0 +1,16 @@
+name: external_ood_unsw_demo
+scenario_type: single_attack
+description: >
+  Demonstrates UNSW-NB15 as an external OOD test source for uav_05 without
+  introducing uav_04.
+
+attack_events:
+  - uav_id: uav_05
+    source_dataset: UNSW-NB15
+    source_type: external_non_uav
+    attack_types: [scan]
+    start_time: 12.0
+    duration: 12.0
+    intensity: 0.72
+    replay_mode: sequential
+    is_ood: true

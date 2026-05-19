@@ -1,0 +1,69 @@
+name: mixed_attack_6datasets_integration
+scenario_type: mixed_attack
+mix_mode: multi_uav_multi_attack
+description: >
+  Integration-safe mixed-attack scenario spanning six datasets across uav_01,
+  uav_02, uav_03, uav_05, uav_06, and uav_07 without using uav_04.
+  This variant keeps the original layout but switches the uav_03 event from
+  scan to flood so that replay labels exist in the ISOT dataset.
+
+attack_events:
+  - uav_id: uav_01
+    source_dataset: UAV-NDD
+    source_type: uav
+    attack_types: [flood]
+    start_time: 24.0
+    duration: 18.0
+    intensity: 0.90
+    replay_mode: loop
+    is_ood: false
+
+  - uav_id: uav_02
+    source_dataset: GCS-to-UAV Updated
+    source_type: uav
+    attack_types: [replay]
+    start_time: 24.0
+    duration: 16.0
+    intensity: 0.78
+    replay_mode: random
+    is_ood: false
+
+  - uav_id: uav_03
+    source_dataset: ISOT Drone Dataset
+    source_type: uav
+    attack_types: [flood]
+    start_time: 24.0
+    duration: 15.0
+    intensity: 0.74
+    replay_mode: sequential
+    is_ood: false
+
+  - uav_id: uav_05
+    source_dataset: UNSW-NB15
+    source_type: external_non_uav
+    attack_types: [scan]
+    start_time: 24.0
+    duration: 20.0
+    intensity: 0.92
+    replay_mode: loop
+    is_ood: true
+
+  - uav_id: uav_06
+    source_dataset: ECU-IoFT-main
+    source_type: uav_iot_wifi
+    attack_types: [command_injection]
+    start_time: 24.0
+    duration: 18.0
+    intensity: 0.84
+    replay_mode: random
+    is_ood: true
+
+  - uav_id: uav_07
+    source_dataset: UAVIDS
+    source_type: uav
+    attack_types: [command_injection]
+    start_time: 24.0
+    duration: 18.0
+    intensity: 0.88
+    replay_mode: sequential
+    is_ood: true

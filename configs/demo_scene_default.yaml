@@ -1,0 +1,41 @@
+# Default demo scene shared by the no-UI demo script and dashboard.
+uav_count: 6
+duration_s: 600.0
+dt_s: 1.0
+seed: 42
+scenario_profile_path: configs/simulator_default.yaml
+start_spacing_s: 3.0
+route_length_m: 600.0
+hover_duration_s: 10.0
+cruise_altitude_m: 90.0
+cruise_speed_mps: 17.0
+battery_capacity_wh: 180.0
+attack_type: jamming_proxy
+attack_start_s: 18.0
+attack_end_s: 42.0
+attack_intensity: 0.92
+attack_replay_mode: loop
+records_per_uav_per_step: 186
+target_records_per_uav: 111472
+export_summary_only: true
+enable_online_detection: true
+response_strategy: conservative_mode
+artifact_path: "D:/UAV_IDS/new/ucs_oodid_project/runs/final_ucs_oodid_window32_stride16/artifact.pt"
+bootstrap_duration_s: 48.0
+window_size: 32
+stride: 16
+dataset_replay_mode: pure_ids_csv
+pure_ids_csv_path: "data/multi_uav_hetero_no_uav04_plus_uav06_uav07_experiment.csv"
+pure_ids_group_col: uav_id
+pure_ids_replay_records_per_uav_per_step: 186
+pure_ids_replay_stop_when_exhausted: true
+pure_ids_replay_keep_original_order: true
+pure_ids_replay_no_mixing: true
+pure_ids_replay_split_filter:
+  - test_id
+  - test_ood
+pure_ids_replay_reset_buffer_on_split_change: true
+bank_k: 5
+bootstrap_q_ood: 0.90
+bootstrap_threshold_margin: 0.05
+top_records: 5

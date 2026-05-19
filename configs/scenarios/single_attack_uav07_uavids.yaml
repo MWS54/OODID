@@ -1,0 +1,16 @@
+name: single_attack_uav07_uavids
+scenario_type: single_attack
+description: >
+  Single-attack scenario for uav_07 using UAVIDS as an extended UAV replay
+  source.
+
+attack_events:
+  - uav_id: uav_07
+    source_dataset: UAVIDS
+    source_type: uav
+    attack_types: [command_injection]
+    start_time: 22.0
+    duration: 15.0
+    intensity: 0.82
+    replay_mode: sequential
+    is_ood: true

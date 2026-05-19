@@ -1,0 +1,58 @@
+seed: 42
+window:
+  mode: count
+  size: 32
+  stride: 16
+  time_seconds: 2.0
+  adaptive_min_size: 8
+  adaptive_max_size: 64
+  adaptive_target_records: 16
+graph:
+  k: 8
+  tau: 0.5
+  metric: cosine
+  variant: sym_weighted  # Legacy graph option kept for ablations; transformer_only does not build behavior graphs.
+  neighbor_strategy: knn
+model:
+  hidden_dim: 64
+  num_heads: 2
+  num_layers: 1
+  gcn_layers: 2  # Legacy GCN depth kept for historical ablations.
+  dropout: 0.1
+  gate: learned
+  encoder_ablation: transformer_only
+training:
+  epochs: 30
+  batch_size: 128
+  lr: 0.001
+  weight_decay: 0.0001
+  lambda_record: 0.0
+  lambda_reg: 0.0
+calibration:
+  q_ood: 0.90
+  bank_k: 5
+  fusion: correlation_aware  # Default onboard fusion; `mean` remains a simpler supported alternative.
+  temperature_grid: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, 5.0]
+leakage_control:
+  identifier_free: true
+  drop_patterns:
+    - payload
+    - raw_bytes
+    - message_id
+    - msg_id
+    - command
+    - mavlink_msg
+    - app_
+    - application
+    - src_ip
+    - dst_ip
+    - source_ip
+    - destination_ip
+    - ip_src
+    - ip_dst
+    - tls_sni
+    - hostname
+    - host_name
+    - url
+    - uri
+    - dns_query

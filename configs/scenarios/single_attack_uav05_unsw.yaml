@@ -1,0 +1,16 @@
+name: single_attack_uav05_unsw
+scenario_type: single_attack
+description: >
+  Single-attack scenario for uav_05 using UNSW-NB15 as an external non-UAV
+  replay source.
+
+attack_events:
+  - uav_id: uav_05
+    source_dataset: UNSW-NB15
+    source_type: external_non_uav
+    attack_types: [scan]
+    start_time: 18.0
+    duration: 16.0
+    intensity: 0.85
+    replay_mode: loop
+    is_ood: true

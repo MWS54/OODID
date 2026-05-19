@@ -1,0 +1,34 @@
+name: single_attack_demo
+scenario_type: single_attack
+description: >
+  Demonstrates one attack type per UAV using three different source datasets.
+
+attack_events:
+  - uav_id: uav_01
+    source_dataset: UAV-NDD
+    attack_types: [DoS]
+    start_time: 12.0
+    duration: 18.0
+    intensity: 0.90
+    replay_mode: sequential
+    mission_phase_constraint: [cruise]
+    is_ood: false
+
+  - uav_id: uav_02
+    source_dataset: GCS-to-UAV Updated
+    attack_types: [Replay]
+    start_time: 20.0
+    duration: 15.0
+    intensity: 0.75
+    replay_mode: random
+    mission_phase_constraint: [hover, return_home]
+    is_ood: true
+
+  - uav_id: uav_03
+    source_dataset: ISOT Drone Dataset
+    attack_types: [Flood]
+    start_time: 26.0
+    duration: 12.0
+    intensity: 0.85
+    replay_mode: loop
+    is_ood: true

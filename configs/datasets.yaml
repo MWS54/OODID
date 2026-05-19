@@ -1,0 +1,25 @@
+datasets:
+  - uav_id: uav_01
+    dataset_name: uav_ndd
+    csv: data/uav_ndd_case1_experiment.csv
+    source_type: uav
+  - uav_id: uav_02
+    dataset_name: gcs_to_uav_updated
+    csv: data/gcs_to_uav_updated_experiment.csv
+    source_type: uav
+  - uav_id: uav_03
+    dataset_name: isot_drone
+    csv: data/isot_drone_uav03_experiment.csv
+    source_type: uav
+  - uav_id: uav_05
+    dataset_name: unsw_nb15
+    csv: data/unsw_nb15_uav05_experiment.csv
+    source_type: external_non_uav
+  - uav_id: uav_06
+    dataset_name: ecu_ioft
+    csv: data/ecu_ioft_uav06_experiment.csv
+    source_type: uav_iot_wifi
+  - uav_id: uav_07
+    dataset_name: uavids
+    csv: data/uavids_uav07_experiment.csv
+    source_type: uav

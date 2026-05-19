@@ -1,0 +1,215 @@
+mission_contexts:
+  default_context: surveillance
+  templates:
+    surveillance:
+      takeoff_altitude_m: 14.0
+      cruise_altitude_scale: 1.10
+      route_length_scale: 1.30
+      hover_duration_scale: 1.80
+      cruise_speed_scale: 0.95
+      return_speed_scale: 0.92
+      takeoff_rate_scale: 1.00
+      climb_rate_scale: 1.00
+      descent_rate_scale: 0.95
+      loiter_radius_m: 30.0
+      loiter_period_s: 24.0
+      delivery_drop_altitude_m: 16.0
+      inspection_lateral_wave_m: 0.0
+      inspection_altitude_wave_m: 0.0
+      inspection_wave_period_s: 20.0
+      payload_power_factor: 1.02
+      wind_sensitivity: 1.00
+      obstacle_sensitivity: 0.65
+    delivery:
+      takeoff_altitude_m: 12.0
+      cruise_altitude_scale: 0.95
+      route_length_scale: 0.90
+      hover_duration_scale: 1.40
+      cruise_speed_scale: 0.88
+      return_speed_scale: 0.96
+      takeoff_rate_scale: 0.95
+      climb_rate_scale: 0.92
+      descent_rate_scale: 0.90
+      loiter_radius_m: 6.0
+      loiter_period_s: 18.0
+      delivery_drop_altitude_m: 9.0
+      inspection_lateral_wave_m: 0.0
+      inspection_altitude_wave_m: 0.0
+      inspection_wave_period_s: 20.0
+      payload_power_factor: 1.18
+      wind_sensitivity: 1.12
+      obstacle_sensitivity: 0.85
+    inspection:
+      takeoff_altitude_m: 10.0
+      cruise_altitude_scale: 0.72
+      route_length_scale: 0.82
+      hover_duration_scale: 1.60
+      cruise_speed_scale: 0.76
+      return_speed_scale: 0.90
+      takeoff_rate_scale: 0.92
+      climb_rate_scale: 0.88
+      descent_rate_scale: 0.86
+      loiter_radius_m: 14.0
+      loiter_period_s: 20.0
+      delivery_drop_altitude_m: 10.0
+      inspection_lateral_wave_m: 10.0
+      inspection_altitude_wave_m: 7.0
+      inspection_wave_period_s: 14.0
+      payload_power_factor: 1.06
+      wind_sensitivity: 0.92
+      obstacle_sensitivity: 1.35
+
+channel:
+  max_wind_level: 1.0
+  base_wind_level: 0.22
+  gust_range: 0.08
+  mission_phase_wind_bias:
+    idle: 0.00
+    takeoff: 0.06
+    climb: 0.12
+    cruise: 0.18
+    hover: 0.05
+    return_home: 0.14
+    land: 0.03
+    emergency: 0.24
+  mission_context_wind_bias:
+    surveillance: 0.04
+    delivery: 0.10
+    inspection: 0.06
+  obstacle_base_factor: 0.06
+  obstacle_altitude_scale: 0.45
+  obstacle_altitude_reference_m: 120.0
+  mission_phase_obstacle_bias:
+    idle: 0.01
+    takeoff: 0.05
+    climb: 0.04
+    cruise: 0.02
+    hover: 0.08
+    return_home: 0.03
+    land: 0.10
+    emergency: 0.12
+  mission_context_obstacle_bias:
+    surveillance: 0.02
+    delivery: 0.06
+    inspection: 0.16
+  wind_rssi_penalty_db: 1.8
+  wind_snr_penalty_db: 4.4
+  wind_latency_ms: 6.5
+  wind_loss_rate: 0.024
+  obstacle_rssi_penalty_db: 5.8
+  obstacle_snr_penalty_db: 3.1
+  obstacle_latency_ms: 8.5
+  obstacle_loss_rate: 0.052
+
+traffic:
+  speed_influence: 0.15
+  jitter_low: 0.92
+  jitter_high: 1.08
+  phase_baselines:
+    surveillance:
+      idle: {up_bytes_per_s: 180.0, down_bytes_per_s: 180.0}
+      takeoff: {up_bytes_per_s: 3400.0, down_bytes_per_s: 2500.0}
+      climb: {up_bytes_per_s: 3200.0, down_bytes_per_s: 2400.0}
+      cruise: {up_bytes_per_s: 3000.0, down_bytes_per_s: 2800.0}
+      hover: {up_bytes_per_s: 2600.0, down_bytes_per_s: 2600.0}
+      return_home: {up_bytes_per_s: 2900.0, down_bytes_per_s: 2500.0}
+      land: {up_bytes_per_s: 2200.0, down_bytes_per_s: 2100.0}
+      emergency: {up_bytes_per_s: 4100.0, down_bytes_per_s: 3300.0}
+    delivery:
+      idle: {up_bytes_per_s: 160.0, down_bytes_per_s: 160.0}
+      takeoff: {up_bytes_per_s: 3000.0, down_bytes_per_s: 2200.0}
+      climb: {up_bytes_per_s: 2850.0, down_bytes_per_s: 2100.0}
+      cruise: {up_bytes_per_s: 2300.0, down_bytes_per_s: 2100.0}
+      hover: {up_bytes_per_s: 1900.0, down_bytes_per_s: 1700.0}
+      return_home: {up_bytes_per_s: 2500.0, down_bytes_per_s: 2200.0}
+      land: {up_bytes_per_s: 2100.0, down_bytes_per_s: 1950.0}
+      emergency: {up_bytes_per_s: 3900.0, down_bytes_per_s: 3000.0}
+    inspection:
+      idle: {up_bytes_per_s: 170.0, down_bytes_per_s: 170.0}
+      takeoff: {up_bytes_per_s: 3600.0, down_bytes_per_s: 2400.0}
+      climb: {up_bytes_per_s: 3450.0, down_bytes_per_s: 2300.0}
+      cruise: {up_bytes_per_s: 2800.0, down_bytes_per_s: 2500.0}
+      hover: {up_bytes_per_s: 3300.0, down_bytes_per_s: 3000.0}
+      return_home: {up_bytes_per_s: 2750.0, down_bytes_per_s: 2300.0}
+      land: {up_bytes_per_s: 2150.0, down_bytes_per_s: 2050.0}
+      emergency: {up_bytes_per_s: 4200.0, down_bytes_per_s: 3400.0}
+  benign_phase_drift:
+    surveillance:
+      cruise: {uplink_multiplier: 1.08, downlink_multiplier: 1.12, variability: 0.05, period_s: 22.0}
+      hover: {uplink_multiplier: 1.15, downlink_multiplier: 1.18, variability: 0.07, period_s: 18.0}
+      return_home: {uplink_multiplier: 1.04, downlink_multiplier: 1.02, variability: 0.04, period_s: 20.0}
+    delivery:
+      takeoff: {uplink_multiplier: 1.10, downlink_multiplier: 1.04, variability: 0.04, period_s: 16.0}
+      hover: {uplink_multiplier: 0.95, downlink_multiplier: 0.92, variability: 0.05, period_s: 14.0}
+      land: {uplink_multiplier: 1.06, downlink_multiplier: 0.98, variability: 0.03, period_s: 12.0}
+    inspection:
+      cruise: {uplink_multiplier: 1.05, downlink_multiplier: 1.08, variability: 0.06, period_s: 15.0}
+      hover: {uplink_multiplier: 1.22, downlink_multiplier: 1.25, variability: 0.08, period_s: 10.0}
+      emergency: {uplink_multiplier: 1.08, downlink_multiplier: 1.10, variability: 0.05, period_s: 12.0}
+
+compute:
+  ambient_temperature_c: 30.0
+  baseline_cpu_load: 0.18
+  max_cpu_load: 0.96
+  mission_cpu_bias:
+    surveillance: 0.08
+    delivery: 0.05
+    inspection: 0.12
+  phase_cpu_bias:
+    idle: 0.00
+    takeoff: 0.04
+    climb: 0.06
+    cruise: 0.10
+    hover: 0.14
+    return_home: 0.08
+    land: 0.05
+    emergency: 0.18
+  throughput_cpu_per_kbps: 0.0025
+  link_quality_cpu_gain: 0.10
+  detector_attack_multiplier: 0.16
+  thermal_response: 0.22
+  thermal_gain_per_cpu: 18.0
+  thermal_gain_per_attack: 5.0
+  cooling_per_wind_level: 6.5
+  detection_power_base_w: 2.8
+  detection_power_cpu_scale_w: 4.6
+  detection_power_thermal_scale_w: 0.12
+  detection_power_loss_scale_w: 0.7
+  thermal_throttle_start_c: 72.0
+  thermal_throttle_power_scale: 0.18
+
+multi_uav:
+  mission_cycle: [surveillance, delivery, inspection]
+  mission_scaling_step: 0.05
+  home_y_spacing_m: 14.0
+  per_uav:
+    uav_01:
+      mission_context: surveillance
+      wind_bias: 0.04
+      obstacle_bias: 0.02
+      traffic_bias: 0.01
+      attack_plan:
+        - {start_s: 18.0, end_s: 42.0, attack_type: jamming_proxy, intensity: 0.92}
+    uav_02:
+      mission_context: delivery
+      wind_bias: 0.10
+      obstacle_bias: 0.06
+      traffic_bias: -0.01
+      attack_plan:
+        - {start_s: 26.0, end_s: 40.0, attack_type: replay, intensity: 0.70}
+    uav_03:
+      mission_context: inspection
+      wind_bias: 0.06
+      obstacle_bias: 0.18
+      traffic_bias: 0.03
+      attack_plan:
+        - {start_s: 34.0, end_s: 50.0, attack_type: command_injection, intensity: 0.88}
+    uav_05:
+      attack_plan:
+        - {start_s: 24.0, end_s: 44.0, attack_type: scan, intensity: 0.92}
+    uav_06:
+      attack_plan:
+        - {start_s: 24.0, end_s: 42.0, attack_type: command_injection, intensity: 0.84}
+    uav_07:
+      attack_plan:
+        - {start_s: 24.0, end_s: 42.0, attack_type: command_injection, intensity: 0.88}
