@@ -1,0 +1,8 @@
+[project]
+name = "ucs-oodid"
+version = "0.2.0"
+description = "Temporal-topological open-set intrusion detection for encrypted UAV traffic"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+include = ["ucs_oodid*"]

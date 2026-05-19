@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+runs/
+*.pt
+*.pth
+*.joblib
+.DS_Store
