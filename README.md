@@ -885,11 +885,6 @@ python scripts/make_figures_tables.py \
 
 The script `make_figures_tables.py` can generate `score_correlation_heatmap.pdf`, matching the LaTeX figure name used in the manuscript.
 
-### Remaining dataset-specific work
+## 仿真模拟演示
 
-The code now contains the complete method path and experiment drivers, but real public datasets still require careful label/family definitions before reporting final paper numbers. For each dataset, verify:
-
-1. which labels are ID classes and which are held out as OOD;
-2. whether the dataset has reliable record-level malicious labels for RQ7;
-3. whether `mission_phase_proxy` or an equivalent proxy-phase column exists for RQ6;
-4. whether the generated `leakage_report.json` removes all payload, command, ID, IP, and application-semantic fields.
+https://github.com/用户名/仓库名/assets/视频链接.mp4
